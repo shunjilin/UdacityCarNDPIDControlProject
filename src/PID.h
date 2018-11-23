@@ -17,6 +17,11 @@ public:
   double Ki;
   double Kd;
 
+  double cte_prev;
+  bool first_update;
+
+  double best_error;
+
   /*
   * Constructor
   */
