@@ -12,8 +12,6 @@ PID::~PID() {}
 
 void PID::Init(double Kp, double Ki, double Kd) {
     cte_prev = 0.0;
-    first_update = true;
-    best_error = std::numeric_limits<double>::max();
     p_error = 0.0;
     i_error = 0.0;
     d_error = 0.0;

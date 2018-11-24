@@ -2,6 +2,35 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
+## Explanation of the PID controller
+PID stands for "Proportional-Integral-Derivative", and is a control loop feedback mechanism used
+for continous modulation of control systems. The P (Proportional), I (Integral) and D
+(Derivative) controllers are combined to produce a control signal. In our case, we use the
+PID controller to steer our car as close as possible to our desired trajectory setpoints
+. The deviation from the trajectory is given by the cross track error (CTE).
+
+#### P (Proportional) Controller
+The P controller gives an output that is proportional to the CTE by multiplying the
+CTE with proportional constant. This helps to steer the car towards the set points, and the speed
+of response is proportional to the proportional constant.
+
+#### D (Derivative) Controller
+The P Controller by itself, while useful, results oscillations as we constantly offshoot the
+setpoints due to the delay between measurement and response. The D controller helps to offset
+this behavior by introducing a dampening effect. This is done by giving an output that is
+proportional to the rate of change of the CTE; the higher the rate of change, the higher the
+counter steer effect will be, proportional to the derivative constant.
+
+#### I (Integral) Controller
+The I controller introduces an output that is proportional to the cumulative CTEs of the car. This
+helps to offset the effect of any systematic error that will lead the car away from the trajectory
+setpoints.
+
+## Tuning the parameters
+I tuned the parameters manually. I increased Kp in order to increase the car's sensitivity towards
+responding to curves, and then tuned Kd in order to decrease the oscillations. I only used a very
+low value for Ki as the car seemed to be very sensitive to Ki, and does not seem to have any
+noticeable systematic error that might cause it to drift away from the middle of the lane.
 
 ## Dependencies
 
